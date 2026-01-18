@@ -26,8 +26,8 @@ public class PetController {
         this.petService = petService;
     }
 
-    @GetMapping("/user/{userId}")
-    public List<PetModel> getAllPetsByUser(Long userId) {
+    @GetMapping("/user/pets/{userId}")
+    public List<PetModel> getAllPetsByUser(@PathVariable Long userId) {
         return petService.getAllPetsByUser(userId);
     }
 
