@@ -42,12 +42,12 @@ public class PetController {
     }
 
     @PutMapping("/{id}")
-    public PetModel updatePet(@PathVariable Long id, @RequestBody UpdatePetDTO petDetails) {
+    public PetModel updatePet(@PathVariable Long id, @RequestBody UpdatePetDTO updatePetDTO) {
         PetModel pet = new PetModel();
-        pet.setName(petDetails.name());
-        pet.setType(petDetails.type());
-        pet.setBreed(petDetails.breed());
-        pet.setAge(petDetails.age());
+        pet.setName(updatePetDTO.name());
+        pet.setType(updatePetDTO.type());
+        pet.setBreed(updatePetDTO.breed());
+        pet.setAge(updatePetDTO.age());
         return petService.updatePet(id, pet);
     }
 
