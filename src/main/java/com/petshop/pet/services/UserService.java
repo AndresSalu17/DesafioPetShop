@@ -26,6 +26,16 @@ public class UserService {
     }
 
     public UserModel saveUser(UserModel user) {
+        
+        if(userRepository.existsByPhone(user.getPhone())) {
+            throw new RuntimeException("Phone number already in use");
+        }
+        
+        if(user.getPhone() == null || user.getPhone().isEmpty()) {
+            throw new RuntimeException("Phone number is required");
+        }
+        
+
         return userRepository.save(user);
     }
 
